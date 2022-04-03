@@ -4,7 +4,6 @@ NAME=fractol
 SRCS=*.c
 OBJS=${SRCS:.c=.o}
 CC=gcc
-REMOVE=rm -f
 HEADER=fractol.h
 
 .c.o:

@@ -6,7 +6,7 @@
 /*   By: lblackth <lblackth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 16:08:10 by lblackth          #+#    #+#             */
-/*   Updated: 2022/03/12 18:20:09 by lblackth         ###   ########.fr       */
+/*   Updated: 2022/03/27 18:05:01 by lblackth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	j_print(t_env *e, int i, int j, t_dp cord);
 void	s_print(t_env *e, int i, int j);
 void	refresher(t_env *e);
 int		render(t_env *e);
-int		e_exit(t_env *e);
+int		e_exit(void);
 int		lr_key(int btn, t_env *e);
 int		ud_key(int btn, t_env *e);
 int		key_hook(int btn, t_env *e);

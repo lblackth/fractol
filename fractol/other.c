@@ -6,7 +6,7 @@
 /*   By: lblackth <lblackth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 17:06:32 by lblackth          #+#    #+#             */
-/*   Updated: 2022/02/26 17:06:43 by lblackth         ###   ########.fr       */
+/*   Updated: 2022/03/27 18:01:04 by lblackth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	gradinit(t_fract *f)
 {
 	f->gradr = (int *)malloc(sizeof(int) * 3);
 	f->gradg = (int *)malloc(sizeof(int) * 6);
+	if (!f->gradr || !f->gradg)
+		exit(0);
 	f->gradr[0] = 0xff0000;
 	f->gradr[1] = 0xffffff;
 	f->gradr[2] = 0x0000ff;

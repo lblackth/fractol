@@ -6,7 +6,7 @@
 /*   By: lblackth <lblackth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 16:49:21 by lblackth          #+#    #+#             */
-/*   Updated: 2022/03/12 18:48:40 by lblackth         ###   ########.fr       */
+/*   Updated: 2022/03/27 17:51:00 by lblackth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	key_hook(int btn, t_env *e)
 	else if (btn == 78)
 		e->f.max_iter--;
 	else if (btn == 53)
-		e_exit(e);
+		e_exit();
 	return (0);
 }
 
@@ -43,6 +43,7 @@ int	mouse_hook(int btn, int x, int y, t_fract *f)
 int	loop_hook(t_env *e)
 {
 	render(e);
+	mlx_hook(e->win, 17, 0, e_exit, e);
 	mlx_key_hook(e->win, &key_hook, e);
 	mlx_mouse_hook(e->win, &mouse_hook, &e->f);
 	return (0);

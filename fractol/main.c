@@ -6,7 +6,7 @@
 /*   By: lblackth <lblackth@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 16:49:10 by lblackth          #+#    #+#             */
-/*   Updated: 2022/03/12 18:15:34 by lblackth         ###   ########.fr       */
+/*   Updated: 2022/03/27 23:15:33 by lblackth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,8 @@ int	render(t_env *e)
 	return (0);
 }
 
-int	e_exit(t_env *e)
+int	e_exit(void)
 {
-	if (e->mlx && e->win)
-		mlx_destroy_window(e->mlx, e->win);
 	exit(0);
 }
 
@@ -88,14 +86,11 @@ int	main(int argc, char **argv)
 {
 	t_env	e;
 
-	if (argc > 1)
+	if (argc == 2)
 	{
 		if (!ft_strcmp(argv[1], "Mandelbrot") || !ft_strcmp(argv[1], "Julia")
 			|| !ft_strcmp(argv[1], "Ship"))
 		{
-			e = *(t_env *)malloc(sizeof(t_env));
-			e.mlx = (void *)malloc(sizeof(void *));
-			e.win = (void *)malloc(sizeof(void *));
 			e.mlx = mlx_init();
 			e.win = mlx_new_window(e.mlx, 1920, 1080, "fractol");
 			finit(&e.f, argv[1]);
@@ -103,11 +98,9 @@ int	main(int argc, char **argv)
 			mlx_loop(e.mlx);
 		}
 		else
-			write(1, "List of available fractols:\n-Mandelbrot\n-Julia\n-Ship\n", \
-			54);
+			write(1, "Available fractols:\n-Mandelbrot\n-Julia\n-Ship\n", 46);
 	}
 	else
-		write(1, "List of available fractols:\n-Mandelbrot\n-Julia\n-Ship\n", \
-			54);
+		write(1, "Available fractols:\n-Mandelbrot\n-Julia\n-Ship\n", 46);
 	return (0);
 }
